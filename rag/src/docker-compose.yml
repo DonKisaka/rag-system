@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: 'pgvector/pgvector:pg17'
+    container_name: 'rag-postgres'
+    environment:
+      - 'POSTGRES_USER=donald'
+      - 'POSTGRES_PASSWORD=ragsystempassword'
+      - 'POSTGRES_DB=rag_db'
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+volumes:
+  pg-data:
